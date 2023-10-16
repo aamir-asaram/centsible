@@ -5,7 +5,7 @@
 
   <div id="users" class="min-w-full flex flex-col justify-center items-center">
     <h1 class="text-center text-7xl font-bold mb-[50%] mt-[45%]">Centsible</h1>
-    <button class="bg-blue text-white w-[96%] py-4 text-2xl">Log In</button>
-    <button class="w-[96%] py-4 text-2xl">Sign Up</button>
+    <%= link_to 'Log In', user_session_path, class:"bg-blue text-white w-[96%] text-center py-4 text-2xl" %>
+    <%= link_to 'Sign Up', new_user_registration_path, class:"w-[96%] py-4 text-center text-2xl" %>
   </div>
 </div>
