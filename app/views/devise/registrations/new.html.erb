@@ -1,0 +1,26 @@
+<div class="-mt-[12%] mb-[20%] flex items-center px-8">
+  <%= link_to '<', users_path, class: "text-white text-2xl font-light" %>
+  <h2 class="w-full flex justify-center text-white text-2xl font-light">Sign up</h2>
+</div>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "w-full py-8"}) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field w-full">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: "w-full border-t h-[50px] outline-none focus:ring-0" %>
+  </div>
+
+  <div class="field w-full">
+    <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password", class: "w-full border-t h-[50px] outline-none focus:ring-0" %>
+  </div>
+
+  <div class="field w-full">
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm Password", class: "w-full border-t h-[50px] outline-none focus:ring-0" %>
+  </div>
+
+  <div class="actions mt-[30%] w-full bg-green py-4 flex justify-center">
+    <%= f.submit "Sign Up", class: "w-[96%] text-white border border-white h-[50px] py-2" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>

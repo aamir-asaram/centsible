@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users
 
-  root "users#index"
+  root "users#show"
   resources :categories
   resources :expenses
   resources :users
