@@ -7,6 +7,10 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field w-full">
+      <%= f.text_field :name, autofocus: true, placeholder: "Full name", class: "w-full border-t h-[50px] outline-none focus:ring-0" %>
+  </div>
+
+  <div class="field w-full">
     <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: "w-full border-t h-[50px] outline-none focus:ring-0" %>
   </div>
 
