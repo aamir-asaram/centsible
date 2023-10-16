@@ -11,14 +11,14 @@
     <%= javascript_importmap_tags %>
   </head>
   <% unless request.path == "/users" || (controller_name == "users" && action_name == "index") %>
-    <nav class="bg-gradient-to-b from-blue-light to-blue py-6 min-h-[70px]">
-
+    <nav class="bg-gradient-to-b from-blue-light to-blue py-6 min-h-[70px] flex items-center">
+      <% if user_signed_in? %>
+        <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "bg-blue-200 rounded-full", form: { action: users_path, method: :get } %>
+      <% end %>
     </nav>
   <% end %>
   <body>
     <main class="container">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
       <%= yield %>
     </main>
   </body>

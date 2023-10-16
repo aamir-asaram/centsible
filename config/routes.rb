@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  root "categories#index"
+  root "users#index"
   resources :categories
   resources :expenses
   resources :users

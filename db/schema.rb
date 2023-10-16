@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_16_093302) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_16_162036) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -28,6 +28,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_16_093302) do
     t.bigint "category_id", null: false
     t.index ["category_id", "expense_id"], name: "index_categories_expenses_on_category_id_and_expense_id"
     t.index ["expense_id", "category_id"], name: "index_categories_expenses_on_expense_id_and_category_id"
+  end
+
+  create_table "expense_categories", force: :cascade do |t|
+    t.bigint "expense_id", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_expense_categories_on_category_id"
+    t.index ["expense_id"], name: "index_expense_categories_on_expense_id"
   end
 
   create_table "expenses", force: :cascade do |t|
@@ -53,5 +62,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_16_093302) do
   end
 
   add_foreign_key "categories", "users"
+  add_foreign_key "expense_categories", "categories"
+  add_foreign_key "expense_categories", "expenses"
   add_foreign_key "expenses", "users", column: "author_id"
 end

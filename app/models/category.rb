@@ -1,5 +1,7 @@
 class Category < ApplicationRecord
   belongs_to :user
-  has_many :expenses, dependent: :destroy
+  has_many :expense_categories, dependent: :destroy
+  has_many :expenses, through: :expense_categories
+
   validates :name, presence: true, uniqueness: true
 end
