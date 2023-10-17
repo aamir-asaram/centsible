@@ -1,0 +1,11 @@
+<div class="-mt-[12%] mb-[20%] flex items-center px-8">
+  <%= link_to '<', categories_path, class: "text-white text-2xl font-semibold" %>
+  <h2 class="w-full flex justify-center text-white text-2xl font-light">Sign up</h2>
+</div>
+
+<div class="mx-auto md:w-2/3 w-full">
+
+  <%= render "form", category: @category %>
+
+  <%= link_to "Back to categories", categories_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+</div>
