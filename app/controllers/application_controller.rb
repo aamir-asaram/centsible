@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
@@ -12,13 +14,13 @@ class ApplicationController < ActionController::Base
   protected
 
   def update_allowed_parameters
-    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:name, :email, :password)}
+    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:name, :email, :password) }
   end
 
   def authenticate_user
-    unless user_signed_in?
-      redirect_to custom_path, alert: 'Please sign in to access this page.'
-    end
+    return if user_signed_in?
+
+    redirect_to custom_path, alert: 'Please sign in to access this page.'
   end
 
   def custom_path
@@ -27,6 +29,6 @@ class ApplicationController < ActionController::Base
     # Example using a named route:
     # return some_named_route_path
     # Example using a specific URL:
-    return '/'
+    '/'
   end
 end

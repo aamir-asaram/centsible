@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Expense < ApplicationRecord
   belongs_to :author, class_name: 'User'
   has_many :expense_categories, dependent: :destroy
@@ -9,5 +11,4 @@ class Expense < ApplicationRecord
   def user_expenses(user)
     where(author: user)
   end
-
 end

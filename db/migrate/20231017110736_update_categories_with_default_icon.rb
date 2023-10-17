@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UpdateCategoriesWithDefaultIcon < ActiveRecord::Migration[7.0]
   def up
     Category.where(icon: nil).update_all(icon: 'your_default_url')
