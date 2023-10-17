@@ -4,7 +4,7 @@
 
 <h2 class="flex overflow-hidden px-8 py-3 shadow-lg justify-end">
   <span class="font-bold">Total: &nbsp</span>
-  <span>R<%= number_with_precision(Expense.where(author_id: current_user.id).sum(:amount), precision: 2) %></span>
+  <span class="w-fit">R<%= number_with_precision(Expense.where(author_id: current_user.id).sum(:amount), precision: 2) %></span>
 </h2>
 
 <% @categories.each do |category| %>
@@ -18,7 +18,7 @@
       <h2 class="text-2xl font-semibold"><%= category.name %></h2>
     </div>
 
-    <h2 class="overflow-hidden mr-6 col-span-1">R<%= number_with_precision(category.expenses.sum(:amount), precision: 2) %></h2>
+    <h2 class="overflow-hidden mr-6 col-span-1 w-fit items-end">R<%= number_with_precision(category.expenses.sum(:amount), precision: 2) %></h2>
   </a>
 
 <% end %>
