@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: centsible_production
-  username: centsible
-  password: <%= ENV["CENTSIBLE_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
