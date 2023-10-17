@@ -2,6 +2,11 @@
   <h2 class="w-full flex justify-center text-white text-2xl font-light">CATEGORIES</h2>
 </div>
 
+<h2 class="flex overflow-hidden px-8 py-3 shadow-lg justify-end">
+  <span class="font-bold">Total: &nbsp</span>
+  <span>R<%= number_with_precision(Expense.where(author_id: current_user.id).sum(:amount), precision: 2) %></span>
+</h2>
+
 <% @categories.each do |category| %>
   <a href="<%= category_path(id: category) %>" class="w-full shadow-lg p-4 my-4 grid grid-cols-5 items-center">
     <div class="col-span-4 flex items-center h-full">
@@ -9,7 +14,12 @@
       <h2 class="text-2xl font-semibold"><%= category.name %></h2>
     </div>
 
-    <h2 class="overflow-hidden text-right mr-6 col-span-1">R<%= category.expenses.sum(:amount) %></h2>
+    <h2 class= "overflow-hidden mr-6 col-span-1">R<%= number_with_precision(category.expenses.sum(:amount), precision: 2) %></h2>
   </a>
 <% end %>
+
+<div class="fixed bottom-0 right-0 bg-green w-full min-h-[70px] flex items-center justify-center">
+  <%= link_to 'NEW CATEGORY', new_category_path, class: 'text-white text-center border border-white py-3 w-[96%]' %>
+</div>
+```
 

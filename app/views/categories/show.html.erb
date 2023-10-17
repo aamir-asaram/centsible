@@ -1,15 +1,17 @@
-<div class="mx-auto md:w-2/3 w-full flex">
-  <div class="mx-auto">
-    <% if notice.present? %>
-      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-    <% end %>
+<div class="-mt-[12%] mb-[15%] flex items-center px-8">
+  <%= link_to '<', categories_path, class: "text-white text-2xl font-semibold" %>
+  <h2 class="w-full flex justify-center text-white text-2xl font-light"><%= @category.name.upcase%></h2>
+</div>
 
-    <%= render @category %>
-
-    <%= link_to "Edit this category", edit_category_path(@category), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <div class="inline-block ml-2">
-      <%= button_to "Destroy this category", category_path(@category), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+<% @category.expenses.each do |expense| %>
+  <div class="w-full shadow-lg p-4 my-4 grid grid-cols-5 items-center">
+    <div class="col-span-4 flex items-center h-full">
+      <h2 class="text-2xl font-semibold"><%= expense.name %></h2>
     </div>
-    <%= link_to "Back to categories", categories_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <h2 class="overflow-hidden text-right mr-6 col-span-1">R<%= number_with_precision(expense.amount, precision: 2) %></h2>
   </div>
+<% end %>
+
+<div class="fixed bottom-0 right-0 bg-green w-full min-h-[70px] flex items-center justify-center">
+  <%= link_to 'NEW EXPENSE', new_expense_path, class: 'text-white text-center border border-white py-3 w-[96%]' %>
 </div>
