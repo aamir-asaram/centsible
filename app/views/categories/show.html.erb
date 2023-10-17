@@ -13,5 +13,5 @@
 <% end %>
 
 <div class="fixed bottom-0 right-0 bg-green w-full min-h-[70px] flex items-center justify-center">
-  <%= link_to 'NEW EXPENSE', new_expense_path, class: 'text-white text-center border border-white py-3 w-[96%]' %>
+  <%= link_to 'NEW EXPENSE', new_category_expense_path(category_id: @category), class: 'text-white text-center border border-white py-3 w-[96%]' %>
 </div>
