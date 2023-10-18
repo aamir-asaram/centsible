@@ -13,6 +13,7 @@
   </head>
   <% unless request.path == "/users" || (controller_name == "users" && action_name == "index") %>
     <nav class="bg-gradient-to-b from-blue-light to-blue py-6 min-h-[70px] flex items-center">
+      <i class="fas fa-bars text-white text-2xl fixed left-8 top-6"></i>
       <% if user_signed_in? && request.path == "/categories" %>
         <%= button_to "LOG OUT", destroy_user_session_path, method: :delete, class: "text-white text-md font-light fixed right-8 top-6", form: { action: users_path, method: :get } %>
       <% end %>
