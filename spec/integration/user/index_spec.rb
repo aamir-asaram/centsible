@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'Splash screen', type: :feature do
-  let(:user) { User.create(name: 'John', email: 'test@test.com', password: '121212') }
-
   describe 'Testing integration specs for users index page' do
     before do
       visit '/'
