@@ -26,6 +26,11 @@ RSpec.describe 'Category', type: :feature do
     expect(page).to have_content('NEW EXPENSE')
   end
 
+  it 'should display the total cost of the expenses' do
+    click_on('Food')
+    expect(page).to have_content('Total: &nbsp R10.00')
+  end
+
   it 'should display the name of the expense' do
     click_on('Food')
     expect(page).to have_content('Pizza')
