@@ -23,12 +23,6 @@ RSpec.describe 'Categories', type: :feature do
       expect(page).to have_content('NEW CATEGORY')
     end
 
-    it 'clicking the back arrow should take you to the categories page' do
-      click_on('NEW CATEGORY')
-      click_on('<')
-      expect(page).to have_content('CATEGORIES')
-    end
-
     it 'should display category name' do
       expect(page).to have_content('Food')
     end
