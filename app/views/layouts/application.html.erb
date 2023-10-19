@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Centsible</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <script src="https://kit.fontawesome.com/fb021b8662.js" crossorigin="anonymous"></script>
+  </head>
+  <% unless request.path == "/users" || (controller_name == "users" && action_name == "index") %>
+    <nav class="bg-gradient-to-b from-blue-light to-blue py-6 min-h-[70px] flex items-center">
+      <% if request.path == "/categories" %>
+        <i class="fas fa-bars text-white text-2xl fixed top-6 left-8"></i>
+      <% end %>
+      <% if user_signed_in? && request.path == "/categories" %>
+        <%= button_to "LOG OUT", destroy_user_session_path, method: :delete, class: "text-white text-md font-light fixed top-6 right-8", form: { action: users_path, method: :get } %>
+      <% end %>
+    </nav>
+  <% end %>
+  <body>
+    <main class="container">
+      <%= yield %>
+    </main>
+  </body>
+</html>
